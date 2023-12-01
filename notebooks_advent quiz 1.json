@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    },
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "print (\"wasssup\")",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "name": "stdout",
+          "text": "wasssup\n",
+          "output_type": "stream"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "import pandas as pd",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "# Read the CSV file\ndf = pd.read_csv('advent_quiz_1_data.csv', header=None)\nprint(df.head())",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "text": "                                     0\n0                     sq5fivetwothree1\n1                               six5gc\n2     txb3qfzsbzbxlzslfourone1vqxgfive\n3                        3onethreebrth\n4  cseven7nqqxnkzngndtddfiverkxkxqjjsr\n",
+          "output_type": "stream"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "df[1] = df[0].str.extract('(\\d)')",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "df[1]",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "execution_count": 5,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "0      5\n1      5\n2      3\n3      3\n4      7\n      ..\n995    4\n996    3\n997    4\n998    2\n999    3\nName: 1, Length: 1000, dtype: object"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "df[2] = df[0].str[::-1]\ndf[3] = df[2].str.extract('(\\d)')",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 6,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "df",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "execution_count": 7,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "                                       0  1  \\\n0                       sq5fivetwothree1  5   \n1                                 six5gc  5   \n2       txb3qfzsbzbxlzslfourone1vqxgfive  3   \n3                          3onethreebrth  3   \n4    cseven7nqqxnkzngndtddfiverkxkxqjjsr  7   \n..                                   ... ..   \n995                                44kmn  4   \n996               rbgfivefive3eightthree  3   \n997                three4nhvblteightfour  4   \n998                2six64rjmcvvxshxjlndj  2   \n999               3nine4fourjclspd152rpv  3   \n\n                                       2  3  \n0                       1eerhtowtevif5qs  1  \n1                                 cg5xis  5  \n2       evifgxqv1enoruoflszlxbzbszfq3bxt  1  \n3                          htrbeerhteno3  3  \n4    rsjjqxkxkrevifddtdngnzknxqqn7nevesc  7  \n..                                   ... ..  \n995                                nmk44  4  \n996               eerhtthgie3evifevifgbr  3  \n997                ruofthgietlbvhn4eerht  4  \n998                jdnljxhsxvvcmjr46xis2  4  \n999               vpr251dpslcjruof4enin3  2  \n\n[1000 rows x 4 columns]",
+            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>0</th>\n      <th>1</th>\n      <th>2</th>\n      <th>3</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>sq5fivetwothree1</td>\n      <td>5</td>\n      <td>1eerhtowtevif5qs</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>six5gc</td>\n      <td>5</td>\n      <td>cg5xis</td>\n      <td>5</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>txb3qfzsbzbxlzslfourone1vqxgfive</td>\n      <td>3</td>\n      <td>evifgxqv1enoruoflszlxbzbszfq3bxt</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3onethreebrth</td>\n      <td>3</td>\n      <td>htrbeerhteno3</td>\n      <td>3</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>cseven7nqqxnkzngndtddfiverkxkxqjjsr</td>\n      <td>7</td>\n      <td>rsjjqxkxkrevifddtdngnzknxqqn7nevesc</td>\n      <td>7</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>995</th>\n      <td>44kmn</td>\n      <td>4</td>\n      <td>nmk44</td>\n      <td>4</td>\n    </tr>\n    <tr>\n      <th>996</th>\n      <td>rbgfivefive3eightthree</td>\n      <td>3</td>\n      <td>eerhtthgie3evifevifgbr</td>\n      <td>3</td>\n    </tr>\n    <tr>\n      <th>997</th>\n      <td>three4nhvblteightfour</td>\n      <td>4</td>\n      <td>ruofthgietlbvhn4eerht</td>\n      <td>4</td>\n    </tr>\n    <tr>\n      <th>998</th>\n      <td>2six64rjmcvvxshxjlndj</td>\n      <td>2</td>\n      <td>jdnljxhsxvvcmjr46xis2</td>\n      <td>4</td>\n    </tr>\n    <tr>\n      <th>999</th>\n      <td>3nine4fourjclspd152rpv</td>\n      <td>3</td>\n      <td>vpr251dpslcjruof4enin3</td>\n      <td>2</td>\n    </tr>\n  </tbody>\n</table>\n<p>1000 rows × 4 columns</p>\n</div>"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "df[4] = (df[1]+df[3]).astype(int)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 8,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "df",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "execution_count": 9,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "                                       0  1  \\\n0                       sq5fivetwothree1  5   \n1                                 six5gc  5   \n2       txb3qfzsbzbxlzslfourone1vqxgfive  3   \n3                          3onethreebrth  3   \n4    cseven7nqqxnkzngndtddfiverkxkxqjjsr  7   \n..                                   ... ..   \n995                                44kmn  4   \n996               rbgfivefive3eightthree  3   \n997                three4nhvblteightfour  4   \n998                2six64rjmcvvxshxjlndj  2   \n999               3nine4fourjclspd152rpv  3   \n\n                                       2  3   4  \n0                       1eerhtowtevif5qs  1  51  \n1                                 cg5xis  5  55  \n2       evifgxqv1enoruoflszlxbzbszfq3bxt  1  31  \n3                          htrbeerhteno3  3  33  \n4    rsjjqxkxkrevifddtdngnzknxqqn7nevesc  7  77  \n..                                   ... ..  ..  \n995                                nmk44  4  44  \n996               eerhtthgie3evifevifgbr  3  33  \n997                ruofthgietlbvhn4eerht  4  44  \n998                jdnljxhsxvvcmjr46xis2  4  24  \n999               vpr251dpslcjruof4enin3  2  32  \n\n[1000 rows x 5 columns]",
+            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>0</th>\n      <th>1</th>\n      <th>2</th>\n      <th>3</th>\n      <th>4</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>sq5fivetwothree1</td>\n      <td>5</td>\n      <td>1eerhtowtevif5qs</td>\n      <td>1</td>\n      <td>51</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>six5gc</td>\n      <td>5</td>\n      <td>cg5xis</td>\n      <td>5</td>\n      <td>55</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>txb3qfzsbzbxlzslfourone1vqxgfive</td>\n      <td>3</td>\n      <td>evifgxqv1enoruoflszlxbzbszfq3bxt</td>\n      <td>1</td>\n      <td>31</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3onethreebrth</td>\n      <td>3</td>\n      <td>htrbeerhteno3</td>\n      <td>3</td>\n      <td>33</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>cseven7nqqxnkzngndtddfiverkxkxqjjsr</td>\n      <td>7</td>\n      <td>rsjjqxkxkrevifddtdngnzknxqqn7nevesc</td>\n      <td>7</td>\n      <td>77</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>995</th>\n      <td>44kmn</td>\n      <td>4</td>\n      <td>nmk44</td>\n      <td>4</td>\n      <td>44</td>\n    </tr>\n    <tr>\n      <th>996</th>\n      <td>rbgfivefive3eightthree</td>\n      <td>3</td>\n      <td>eerhtthgie3evifevifgbr</td>\n      <td>3</td>\n      <td>33</td>\n    </tr>\n    <tr>\n      <th>997</th>\n      <td>three4nhvblteightfour</td>\n      <td>4</td>\n      <td>ruofthgietlbvhn4eerht</td>\n      <td>4</td>\n      <td>44</td>\n    </tr>\n    <tr>\n      <th>998</th>\n      <td>2six64rjmcvvxshxjlndj</td>\n      <td>2</td>\n      <td>jdnljxhsxvvcmjr46xis2</td>\n      <td>4</td>\n      <td>24</td>\n    </tr>\n    <tr>\n      <th>999</th>\n      <td>3nine4fourjclspd152rpv</td>\n      <td>3</td>\n      <td>vpr251dpslcjruof4enin3</td>\n      <td>2</td>\n      <td>32</td>\n    </tr>\n  </tbody>\n</table>\n<p>1000 rows × 5 columns</p>\n</div>"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "sum(df[4])",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "execution_count": 10,
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "54331"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
